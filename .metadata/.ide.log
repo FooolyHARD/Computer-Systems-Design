@@ -1321,3 +1321,4 @@
 2024-12-02 21:14:55,481 [INFO] IPUIPlugin:75 - create IPUIPlugin
 2024-12-02 21:14:55,527 [INFO] ApiDbMcu:488 - Load IP Config File for PDM2PCM
 2024-12-02 21:14:56,063 [INFO] OpenFileManager:323 - Restore cursor
+2024-12-02 21:17:57,637 [INFO] Gpio:254 - dependency for GPIO [SYS]

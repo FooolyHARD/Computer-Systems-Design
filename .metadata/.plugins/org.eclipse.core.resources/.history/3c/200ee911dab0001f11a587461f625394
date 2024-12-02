@@ -166,11 +166,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
 	  int button_state = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_15);
 	  if (button_state == GPIO_PIN_RESET && button_was_pressed == GPIO_PIN_SET && HAL_GetTick() - button_time > 100) {
 		  button_was_pressed = GPIO_PIN_RESET;
 		  button_time = HAL_GetTick();
-		  //Color switches
 		  if(current_stage == RED && HAL_GetTick() - stage_start >= (BASE_STAGE_TIMING / 4)) {
 			  goto next_stage;
 		  } else {
@@ -194,7 +194,6 @@ int main(void)
 			  short_scenario = 0;
 			  should_run = BASE_STAGE_TIMING / 4;
 		  }
-		  //XDDDD
 		  switch (current_stage) {
 			  case RED:
 				  led_red();
@@ -217,14 +216,14 @@ int main(void)
 	  }
 
 	  if (HAL_GetTick() - stage_start >= should_run) {
-		  	  next_stage:
-				  current_stage += 1;
-				  led_none();
-				  if (current_stage >= STAGES_LAST) {
-					  current_stage = RED;
-				  }
-				  stage_start = HAL_GetTick();
-				  new_stage = 1;
+next_stage:
+		  current_stage += 1;
+		  led_none();
+		  if (current_stage >= STAGES_LAST) {
+			  current_stage = RED;
+		  }
+		  stage_start = HAL_GetTick();
+		  new_stage = 1;
 	  }
 
   }
